@@ -1,0 +1,6 @@
+[
+  "valet use 7.4",
+  "code /home/y/code/inagene-portal",
+  "google-chrome-stable inagene-portal.test",
+  "env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/slack_slack.desktop /snap/bin/slack %U"
+]
