@@ -24,8 +24,6 @@ def handleQuery(query):
     if not query.isTriggered or not query.isValid:
         return
     
-    print(' && '.join(commands))
-
     items = []
 
     items.append(Item(
