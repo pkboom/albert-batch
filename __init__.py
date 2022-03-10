@@ -3,37 +3,39 @@ import re
 from os import path
 import json
 
-__title__ = "Start"
+__title__ = "Batches"
 __version__ = "0.4.0"
-__triggers__ = "start "
+__triggers__ = "ba "
 __authors__ = "pkboom"
 
 icon = "{}/icon.png".format(path.dirname(__file__))
 
 dir = path.dirname(path.abspath(__file__))
 
-commands = path.join(dir, 'commands.json')
+batches = path.join(dir, 'batches.json')
 
-file = open(commands)
-commands = json.load(file)
+file = open(batches)
+batches = json.load(file)
 file.close()
-
-
 
 def handleQuery(query):
     if not query.isTriggered or not query.isValid:
         return
     
+    print(batches)
+    print(batches[0])
+    
     items = []
 
-    items.append(Item(
-        id='start',
-        icon=icon,
-        text='start',
-        actions=[TermAction(
-            text='Start work', 
-            script=' && '.join(commands), 
-        )],
-    ))
+    for batch in batches:
+        items.append(Item(
+            id='start',
+            icon=icon,
+            text='start',
+            actions=[TermAction(
+                text='Start work', 
+                script=' && '.join(commands), 
+            )],
+        ))
 
     return items
