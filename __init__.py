@@ -23,19 +23,19 @@ def handleQuery(query):
         return
     
     print(batches)
-    print(batches[0])
     
     items = []
 
     for batch in batches:
-        items.append(Item(
-            id='start',
-            icon=icon,
-            text='start',
-            actions=[TermAction(
-                text='Start work', 
-                script=' && '.join(commands), 
-            )],
-        ))
+        for key in batch.keys():
+            items.append(Item(
+                id=key,
+                icon=icon,
+                text=key,
+                actions=[TermAction(
+                    text='Start work', 
+                    script=' && '.join(batch[key]), 
+                )],
+            ))
 
     return items
