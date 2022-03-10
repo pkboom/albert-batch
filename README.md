@@ -1,7 +1,7 @@
 # Git clone
 
-This extension will valet share a project in `~/code` and run valet commands in `./commands.json`.
+This extension will run batches in `./batches.json`.
 
 ### Trigger
 
-Trigger this extension with `va `.
+Trigger this extension with `ba `.
