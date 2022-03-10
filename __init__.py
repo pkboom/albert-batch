@@ -22,20 +22,21 @@ def handleQuery(query):
     if not query.isTriggered or not query.isValid:
         return
     
-    print(batches)
-    
+    regexp = query.string.strip().replace(" ", ".*")
+
     items = []
 
     for batch in batches:
         for key in batch.keys():
-            items.append(Item(
-                id=key,
-                icon=icon,
-                text=key,
-                actions=[TermAction(
-                    text='Start work', 
-                    script=' && '.join(batch[key]), 
-                )],
-            ))
+            if re.search(regexp, key): 
+                items.append(Item(
+                    id=key,
+                    icon=icon,
+                    text=key,
+                    actions=[TermAction(
+                        text='Run a batch', 
+                        script=' && '.join(batch[key]), 
+                    )],
+                ))
 
     return items
