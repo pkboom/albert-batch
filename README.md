@@ -1,6 +1,6 @@
 # Git clone
 
-This extension will run batches in `./batches.json`.
+This extension will run a batch in `./batches.json`.
 
 ### Trigger
 
